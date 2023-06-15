@@ -1,5 +1,7 @@
 # VICS-Gallery-Maker
 
+Start of the project supported by [Fortech, Technologies pour l’investigation numérique](https://fortech.fr)  
+
 ## Description
 
 This is a tool design to make a gallery from a VICS ([Video Image Classification Standard](https://www.projectvic.org/vics-data-model)) JSON Export.  
@@ -40,4 +42,3 @@ It produce something like this :
 
 Images from [wikimedia](https://commons.wikimedia.org)  
 Written by [@lemnet_fr](https://twitter.com/lemnet_fr)  
-Start of the project supported by [Fortech, Technologies pour l’investigation numérique](https://fortech.fr)

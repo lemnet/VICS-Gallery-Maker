@@ -9,7 +9,7 @@ It produce something like this :
 <kbd><img src="https://raw.githubusercontent.com/lemnet/VICS-Gallery-Maker/main/pics//Result.png" alt="Result" width=400></kbd>
 ## How-to use
 
-1. Export from [Analyse DI](https://www.griffeye.com/analyze-di/) (or any other tool that support VICS JSON Export) :  
+1. Export from Griffeye [Analyse DI](https://www.griffeye.com/analyze-di/) (or any other tool that support VICS JSON Export) :  
 
 <kbd><img src="https://raw.githubusercontent.com/lemnet/VICS-Gallery-Maker/main/pics/Export0.png" alt="Export step 0" width=400></kbd>  
   

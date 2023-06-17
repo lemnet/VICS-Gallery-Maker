@@ -65,6 +65,12 @@ def browse_button():
             for item in unique_items:
                 prop_listbox.insert(tk.END, item)
             ok_button.config(state=tk.NORMAL)
+            select_all_button.config(state=tk.NORMAL)
+            select_none_button.config(state=tk.NORMAL)
+            select_all_exif_button.config(state=tk.NORMAL)
+            select_no_exif_button.config(state=tk.NORMAL)
+            select_all_media_button.config(state=tk.NORMAL)
+            select_no_media_button.config(state=tk.NORMAL)
         else:
             count_display_label.config(text="Json doesn't seem valid")
             ok_button.config(state=tk.DISABLED)
@@ -174,11 +180,49 @@ def write_html_footer(html_file_path):
 def http_callback(url):
     webbrowser.open_new(url)
 
+def select_all():
+    prop_listbox.select_set(0, tk.END)
+
+def select_none():
+    prop_listbox.select_clear(0, tk.END)
+
+def select_all_exif():
+    values = prop_listbox.get(0, tk.END)
+    i = 0
+    for value in values:
+        if value.startswith("_Exif "):
+            prop_listbox.select_set(i)
+        i += 1
+
+def select_no_exif():
+    values = prop_listbox.get(0, tk.END)
+    i = 0
+    for value in values:
+        if value.startswith("_Exif "):
+            prop_listbox.select_clear(i)
+        i += 1
+
+def select_all_media():
+    values = prop_listbox.get(0, tk.END)
+    i = 0
+    for value in values:
+        if value.startswith("_MediaFiles "):
+            prop_listbox.select_set(i)
+        i += 1
+
+def select_no_media():
+    values = prop_listbox.get(0, tk.END)
+    i = 0
+    for value in values:
+        if value.startswith("_MediaFiles "):
+            prop_listbox.select_clear(i)
+        i += 1
+
 
 # Create the main window
 form = tk.Tk()
 form.title("VICS-Gallery-Maker")
-form.geometry("350x465")
+form.geometry("350x485")
 form.resizable(False, False)
 
 input_labelframe = tk.LabelFrame(form, text="Input")
@@ -224,9 +268,21 @@ all_files_Checkbutton = tk.Checkbutton(param_frame3, anchor="w", text="Output al
 all_files_Checkbutton.select()
 all_files_Checkbutton.pack(side=tk.TOP,padx=5, pady=2, fill="x")
 fields_label = tk.Label(param_frame3,anchor="w", text="Fields to Output:")
-fields_label.pack(padx=5, pady=2, fill="x")
-prop_listbox = tk.Listbox(param_frame3, selectmode=tk.MULTIPLE)
-prop_listbox.pack(side=tk.BOTTOM,padx=5, pady=2, fill="x")
+fields_label.pack(side=tk.TOP,padx=5, pady=2, fill="x")
+prop_listbox = tk.Listbox(param_frame3, selectmode=tk.MULTIPLE, width=35, height=11)
+prop_listbox.pack(side=tk.LEFT,padx=5, pady=2, fill="x")
+select_all_button = tk.Button(param_frame3, text="Select all", command=select_all, state=tk.DISABLED)
+select_all_button.pack(padx=5, pady=2, fill="x")
+select_none_button = tk.Button(param_frame3, text="Select none", command=select_none, state=tk.DISABLED)
+select_none_button.pack(padx=5, pady=2, fill="x")
+select_all_exif_button = tk.Button(param_frame3, text="Select all exif", command=select_all_exif, state=tk.DISABLED)
+select_all_exif_button.pack(padx=5, pady=2, fill="x")
+select_no_exif_button = tk.Button(param_frame3, text="Select no exif", command=select_no_exif, state=tk.DISABLED)
+select_no_exif_button.pack(padx=5, pady=2, fill="x")
+select_all_media_button = tk.Button(param_frame3, text="Select all media", command=select_all_media, state=tk.DISABLED)
+select_all_media_button.pack(padx=5, pady=2, fill="x")
+select_no_media_button = tk.Button(param_frame3, text="Select no media", command=select_no_media, state=tk.DISABLED)
+select_no_media_button.pack(padx=5, pady=2, fill="x")
 
 button_frame = tk.Frame(form)
 button_frame.pack(side=tk.BOTTOM,padx=5, pady=2)

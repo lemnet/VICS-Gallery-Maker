@@ -38,6 +38,10 @@ It produce something like this :
 
 5. Enjoy
 
+## Suggestions / Pull requests
+
+They are welcome
+
 ## Credit
 
 Images from [wikimedia](https://commons.wikimedia.org)  
